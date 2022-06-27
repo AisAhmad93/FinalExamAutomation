@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20220627 17:09:40.424" rpa="false" schemaversion="3">
+<suite id="s1" name="Contactus" source="C:\Users\Indodana Admin\AutoFinalExamDojo\model\contactus.robot">
+<test id="s1-t1" name="the user is in the login form" line="7">
+<kw name="Open Browser Chrome" library="contactus" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=${Browser}</arg>
+<arg>url=${Homepage_url}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220627 17:09:40.639" level="INFO">Opening browser 'Chrome' to base url 'http://automationpractice.com/index.php'.</msg>
+<status status="PASS" starttime="20220627 17:09:40.638" endtime="20220627 17:10:15.280"/>
+</kw>
+<status status="PASS" starttime="20220627 17:09:40.637" endtime="20220627 17:10:15.280"/>
+</kw>
+<kw name="user click button signin" library="contactus">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@class="login"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220627 17:10:15.283" level="INFO">Clicking element '//*[@class="login"]'.</msg>
+<status status="PASS" starttime="20220627 17:10:15.282" endtime="20220627 17:10:29.304"/>
+</kw>
+<status status="PASS" starttime="20220627 17:10:15.281" endtime="20220627 17:10:29.304"/>
+</kw>
+<kw name="Sign in with your registered email" library="contactus">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Login_email}</arg>
+<arg>aisahmad200@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220627 17:10:29.306" level="INFO">Typing text 'aisahmad200@gmail.com' into text field '//input[@id="email"]'.</msg>
+<status status="PASS" starttime="20220627 17:10:29.305" endtime="20220627 17:10:29.401"/>
+</kw>
+<status status="PASS" starttime="20220627 17:10:29.305" endtime="20220627 17:10:29.401"/>
+</kw>
+<kw name="Sign in with your registered password" library="contactus">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Pass_email}</arg>
+<arg>Ais123</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220627 17:10:29.402" level="INFO">Typing text 'Ais123' into text field '//input[@id="passwd"]'.</msg>
+<status status="PASS" starttime="20220627 17:10:29.402" endtime="20220627 17:10:29.489"/>
+</kw>
+<status status="PASS" starttime="20220627 17:10:29.401" endtime="20220627 17:10:29.489"/>
+</kw>
+<kw name="Click button signin" library="contactus">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Signin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220627 17:10:29.491" level="INFO">Clicking element '//button[@id="SubmitLogin"]'.</msg>
+<status status="PASS" starttime="20220627 17:10:29.490" endtime="20220627 17:10:47.148"/>
+</kw>
+<status status="PASS" starttime="20220627 17:10:29.490" endtime="20220627 17:10:47.148"/>
+</kw>
+<kw name="Click Contact Us" library="contactus">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@id="contact-link"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220627 17:10:47.149" level="INFO">Clicking element '//div[@id="contact-link"]'.</msg>
+<status status="PASS" starttime="20220627 17:10:47.149" endtime="20220627 17:10:57.330"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//i[@class="icon-building"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220627 17:10:57.330" level="INFO">Clicking element '//i[@class="icon-building"]'.</msg>
+<msg timestamp="20220627 17:10:57.469" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-62.png"&gt;&lt;img src="selenium-screenshot-62.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220627 17:10:57.469" level="FAIL">Element with locator '//i[@class="icon-building"]' not found.</msg>
+<status status="FAIL" starttime="20220627 17:10:57.330" endtime="20220627 17:10:57.491"/>
+</kw>
+<status status="FAIL" starttime="20220627 17:10:47.148" endtime="20220627 17:10:57.492"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220627 17:10:57.495" endtime="20220627 17:10:59.670"/>
+</kw>
+<doc>Test Login</doc>
+<status status="FAIL" starttime="20220627 17:09:40.624" endtime="20220627 17:10:59.670">Element with locator '//i[@class="icon-building"]' not found.</status>
+</test>
+<doc>login test case</doc>
+<status status="FAIL" starttime="20220627 17:09:40.425" endtime="20220627 17:10:59.680"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Contactus">Contactus</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
