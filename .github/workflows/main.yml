@@ -31,7 +31,7 @@ jobs:
       - name: Run Robot Framework tests
         run: |
           cd AutoFinalExamDojo
-          robot --variable Browser:chrome --outputdir results /
+          robot --variable Browser:chrome --outputdir results model/
 
       - name: Upload Robot results
         uses: actions/upload-artifact@v4
