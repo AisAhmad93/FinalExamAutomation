@@ -1,0 +1,60 @@
+name: Robot Framework tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  robot:
+    runs-on: ubuntu-latest
+    services:
+      selenium:
+        image: selenium/standalone-chrome:latest
+        ports:
+          - 4444:4444
+        options: >-
+          --shm-size=1g
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f AutoFinalExamDojo/requirements.txt ]; then
+            pip install -r AutoFinalExamDojo/requirements.txt
+          else
+            pip install robotframework robotframework-seleniumlibrary selenium
+          fi
+
+      - name: Wait for Selenium container
+        run: |
+          for i in {1..30}; do
+            if curl -s http://localhost:4444/wd/hub/status | grep -q '"ready"'; then
+              echo "Selenium ready"
+              break
+            fi
+            echo "Waiting for Selenium..."
+            sleep 1
+          done
+
+      - name: Run Robot tests
+        env:
+          SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
+        run: |
+          cd AutoFinalExamDojo
+          mkdir -p results
+          robot --variable SELENIUM_REMOTE_URL:$SELENIUM_REMOTE_URL --outputdir results model/
+
+      - name: Upload Robot results
+        uses: actions/upload-artifact@v3
+        with:
+          name: robot-results
+          path: AutoFinalExamDojo/results
