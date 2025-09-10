@@ -54,7 +54,7 @@ jobs:
           robot --variable SELENIUM_REMOTE_URL:$SELENIUM_REMOTE_URL --outputdir results model/
 
       - name: Upload Robot results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: robot-results
           path: AutoFinalExamDojo/results
