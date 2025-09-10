@@ -4,7 +4,9 @@ Variables           locators.yaml
 
 *** Keywords ***
 Open Browser Chrome
-    Open Browser        browser=${Browser}  url=${Homepage_url}
+    Open Browser    ${Homepage_url}    ${Browser}    options=${Arguments}
+    Maximize Browser Window
+
 the user is in the login form
     [Documentation]     user login 
     Location Should Be  ${Homepage_url} 
@@ -23,4 +25,5 @@ Verify Homepage Title Appears
 Click Contact Us
     Click Element               //div[@id="contact-link"]
     Click Element               //i[@class="icon-building"]
+
 
